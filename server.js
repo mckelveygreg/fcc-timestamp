@@ -39,18 +39,27 @@ app.get("/api/hello", function (req, res) {
 
 // Timestamp area
 app.get('/api/timestamp/:date_string?', (req,res) => {
-  const time = req.params.date_string;
+  // regex to determine utc or milliseconds
+  const regex = /^\d+$/;
   
+  let time = req.params.date_string;
+  
+  if (regex.test(time)) {
+      time = new Date(Number(time));
+  } else {
+    console.log('non-numbers ' + time);
+      time = time !== undefined ? new Date(time) : new Date();
+  }
   // moment testing
-  console.log(time);
-  const formatUTC = moment.unix(Number.parseInt(time));
-  console.log(formatUTC);
+  console.log(time.getTime());
+   // const formatUTC = moment.unix(time);
+   // console.log(formatUTC);
   
   
-  // return date_string or current date
-  const date = time !== undefined ? new Date(time) : new Date();
-  console.log(date);
-  res.json({"unix": date.getTime(), "utc": date.toUTCString() });
+//   // return date_string or current date
+//   const date = time.find('-') && time !== undefined ? new Date(time) : new Date();
+//   console.log(date);
+   res.json({"unix": time.getTime(), "utc": time.toUTCString() });
 });
 
 // listen for requests :)
