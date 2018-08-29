@@ -9,11 +9,15 @@
 4. If the date string is **valid** the api returns a JSON having the structure 
 `{"unix": <date.getTime()>, "utc" : <date.toUTCString()> }`
 e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
-5. If the date string is **invalid** the api returns a JSON having the structure `{"unix": null, "utc" : "Invalid Date" }`. It is what you get from the date manipulation functions used above. (not working...)
+5. If the date string is **invalid** the api returns a JSON having the structure `{"unix": null, "utc" : "Invalid Date" }`. It is what you get from the date manipulation functions used above.
 
+#### Homepage
+* https://fcc-timestamp-microservice-mckelveygreg.glitch.me/api/timestamp/
 #### Example usage:
-* https://careful-furniture.glitch.me/api/timestamp/2015-12-15
-* hhttps://careful-furniture.glitch.me/api/timestamp/1450137600000
+* https://fcc-timestamp-microservice-mckelveygreg.glitch.me/api/timestamp/2015-12-25
+* https://fcc-timestamp-microservice-mckelveygreg.glitch.me/api/timestamp/1535584248123
+* https://fcc-timestamp-microservice-mckelveygreg.glitch.me/api/timestamp/
+* https://fcc-timestamp-microservice-mckelveygreg.glitch.me/api/timestamp/cheese
 
 #### Example output:
 * { "unix": 1450137600, "natural": "December 15, 2015" }
